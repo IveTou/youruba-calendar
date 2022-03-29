@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default {
+const S = {
   Box: styled.div`
     position: relative;
     width: 100%;
@@ -29,3 +29,6 @@ export default {
     justify-content: center;
   `
 }
+
+
+export default S
