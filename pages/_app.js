@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={{ mode: "default" }}>
+      <ThemeProvider theme={{ mode: "default"}}>
         <Component {...pageProps} />
       </ThemeProvider>
     </>

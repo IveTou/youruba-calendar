@@ -16,5 +16,16 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
+  `,
+  Row: styled.div`
+    display: flex;
+    width: 100%;
+    height: ${({ percent }) => 100 / percent}%;
+  `,
+  Element: styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   `
 }
