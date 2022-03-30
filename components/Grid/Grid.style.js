@@ -7,9 +7,9 @@ export default {
     background: aliceblue;
 
     &:after {
-      content: "";
       display: block;
       padding-bottom: 100%;
+      content: "";
     }
   `,
   Grid: styled.div`
