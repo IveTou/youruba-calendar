@@ -13,7 +13,7 @@ const Grid = ({ rows, pattern, header, square }) => {
           <S.HeaderCell key={index}>{e}</S.HeaderCell>
         )}
       </S.Header>
-      <S.Box percent={!square && header.length}>
+      <S.Box percent={!square && header.length/* TODO: make it more semantic */}>
         <S.Grid>
           {matrix.map((row, i) => (
             <S.Row key={i} percent={rows}>
