@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const S = {
   Box: styled.div`
@@ -8,8 +8,16 @@ const S = {
 
     &:after {
       display: block;
-      padding-bottom: 100%;
       content: "";
+
+      ${({ percent }) => percent
+        ? css`
+          padding-bottom: ${100 / percent}%;
+        `
+        : css`
+          padding-bottom: 100%;
+        `
+      }
     }
   `,
   Grid: styled.div`
