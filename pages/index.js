@@ -1,9 +1,2 @@
-
-
-export default function Home() {
-  return (
-    <div >
-      Hello Fuckers!
-    </div>
-  )
-}
+export { default } from './calendar'
+ 
