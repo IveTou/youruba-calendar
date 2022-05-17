@@ -25,11 +25,13 @@ export const chunkWeek = (data, week = 1) => {
 }
 
 export const chunkDay = (data, day = 1) => {
-  if (!data) return []
+  const formatDay = parseInt(day)
+
+  if (!data || !formatDay) return []
 
   const dayData = data
-    .filter(({ day: dayName, onMonth }) => dayName === day && onMonth)
+    .filter(({ day, onMonth }) => day === formatDay && onMonth)
     .map((el, index) => ({ ...el, index }))
-
+  
   return dayData
 }

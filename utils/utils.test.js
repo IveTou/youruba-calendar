@@ -96,5 +96,17 @@ describe('chunkData', () => {
 
       expect(chunk).toHaveLength(1)
     })
+
+    it('should chunk data when valid prop is passed', () => {
+      const chunk = chunkDay(data, 1)
+
+      expect(chunk).toHaveLength(1)
+    })
+
+    it('return empty array when invalid prop is passed', () => {
+      const chunk = chunkDay(data, 'a')
+
+      expect(chunk).toHaveLength(0)
+    })
   })
 })

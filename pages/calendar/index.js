@@ -12,10 +12,12 @@ const Views = () => {
 
   const days = daysProvider({ year, month })
 
+  const viewDayData = chunkDay(days, day)
+
   const viewMap = {
     day: {
-      data: chunkDay(days, day),
-      header: [WEEK_DAYS[chunkDay(days, day)[0]?.index]]
+      data: [viewDayData],
+      header: [WEEK_DAYS[viewDayData[0]?.index]]
     },
     week: {
       data: chunkWeek(days),
@@ -32,8 +34,7 @@ const Views = () => {
 
   if (!gridProps) return null
 
-  console.log(gridProps)
-
+  /* TODO: check when grid pros is true but empty arrays */
   return (
     <Grid  {...gridProps} />
   )
