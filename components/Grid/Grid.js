@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import S from './Grid.style'
 
-const Grid = ({ rows, pattern, header, square }) => {
-  const matrix = Array(rows).fill(pattern)
+const Grid = ({ data, header, square }) => {
+  const rows = data.length
 
   return (
     <>
@@ -15,10 +15,10 @@ const Grid = ({ rows, pattern, header, square }) => {
       </S.Header>
       <S.Box percent={!square && header.length/* TODO: make it more semantic */}>
         <S.Grid>
-          {matrix.map((row, i) => (
+          {data.map((row, i) => (
             <S.Row key={i} percent={rows}>
-              {row.map((element, j) => (
-                <S.Cell key={`${i}-${j}`}>{element}</S.Cell>
+              {row.map(({ day }, j) => (
+                <S.Cell key={`${i}-${j}`}>{day}</S.Cell>
               ))}
             </S.Row>
           ))}
@@ -29,15 +29,13 @@ const Grid = ({ rows, pattern, header, square }) => {
 }
 
 Grid.propTypes = {
-  rows: PropTypes.number,
-  pattern: PropTypes.array,
+  data: PropTypes.array,
   header: PropTypes.array,
   square: PropTypes.bool
 }
 
 Grid.defaultProps = {
-  rows: 6,
-  pattern: [],
+  data: [],
   header: [],
   square: false
 }
