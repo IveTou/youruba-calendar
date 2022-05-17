@@ -1,4 +1,6 @@
 export const chunkMonth = data => {
+  if (!data) return [[]]
+
   const WEEK_DAYS_LENGTH = 7
   let chunk = []
 
@@ -14,6 +16,8 @@ export const chunkMonth = data => {
 }
 
 export const chunkWeek = (data, week = 1) => {
+  if (!data) return [[]]
+
   const row = week -1
   const monthData = chunkMonth(data)
 
@@ -21,9 +25,11 @@ export const chunkWeek = (data, week = 1) => {
 }
 
 export const chunkDay = (data, day = 1) => {
+  if (!data) return []
+
   const dayData = data
     .filter(({ day: dayName, onMonth }) => dayName === day && onMonth)
     .map((el, index) => ({ ...el, index }))
 
-  return [dayData]
+  return dayData
 }

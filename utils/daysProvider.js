@@ -2,13 +2,18 @@ const CALENDAR_LENGTH = 42
 
 const daysProvider = date => {
   const { year, month } = date || {}
-  const rawMonth = month - 1
+  const formattedYear = parseInt(year)
+  const formattedMonth = parseInt(month)
+
+  if (date && !(formattedYear && formattedMonth)) return []
+
+  const rawMonth = formattedMonth - 1
   const dateObj = new Date()
   const rawTodayMonth = date ? rawMonth : dateObj.getMonth()
-  const todayYear = date ? year : dateObj.getFullYear()
+  const todayYear = date ? formattedYear : dateObj.getFullYear()
   const dayOne = new Date(todayYear, rawTodayMonth, 1).getDay()
 
-  const todayMonth = month || rawTodayMonth + 1
+  const todayMonth = formattedMonth || rawTodayMonth + 1
   const pastMonth = todayMonth - 1
   const nextMonth = todayMonth + 1
   
