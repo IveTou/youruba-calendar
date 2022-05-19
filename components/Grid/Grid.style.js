@@ -35,7 +35,8 @@ const S = {
     width: 100%;
     align-items: center;
     justify-content: center;
-    background: green;
+    font-weight: 700;
+    color: ${({ active }) => active ? 'black' : 'grey'};
   `,
   Header: styled.div`
     display: flex;

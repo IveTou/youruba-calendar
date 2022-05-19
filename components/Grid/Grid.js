@@ -17,8 +17,8 @@ const Grid = ({ data, header, square }) => {
         <S.Grid>
           {data.map((row, i) => (
             <S.Row key={i} percent={rows}>
-              {row.map(({ day }, j) => (
-                <S.Cell key={`${i}-${j}`}>{day}</S.Cell>
+              {row.map(({ day, onMonth }, j) => (
+                <S.Cell key={`${i}-${j}`} active={onMonth}>{day}</S.Cell>
               ))}
             </S.Row>
           ))}
