@@ -16,11 +16,11 @@ const Views = () => {
 
   const viewMap = {
     day: {
-      data: [viewDayData],
-      header: [WEEK_DAYS[viewDayData[0]?.index]]
+      data: viewDayData,
+      header: [WEEK_DAYS[viewDayData[0][0]?.index]]
     },
     week: {
-      data: chunkWeek(days),
+      data: chunkWeek(days, day),
       header: WEEK_DAYS
     },
     month: {

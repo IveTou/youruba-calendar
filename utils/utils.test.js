@@ -44,7 +44,7 @@ describe('daysProvider', () => {
 })
 
 describe('chunkData', () => {
-  const data = daysProvider()
+  const data = daysProvider({ year: 2022, month: 5 })
 
   describe('chunkMonth', () => {
     it('should return empty matrix when no data is passed', () => {
@@ -82,31 +82,71 @@ describe('chunkData', () => {
   
       expect(chunk[0]).toHaveLength(7)
     })
+
+    it('return te right week of set day #0', () => {
+      const setDay = 1
+      const chunk = chunkDay(data, setDay)
+      const week = chunk[0]
+
+      const someWeek = week.some(({ day, onMonth }) => day === setDay && onMonth)
+
+      expect(someWeek).toBeTruthy()
+    })
+
+    it('return te right week of set day #0', () => {
+      const setDay = 15
+      const chunk = chunkDay(data, setDay)
+      const week = chunk[0]
+
+      const someWeek = week.some(({ day, onMonth }) => day === setDay && onMonth)
+
+      expect(someWeek).toBeTruthy()
+    })
   })
 
   describe('chunkDay', () => {
-    it('should return empty array when no data is passed', () => {
+    it('should return empty matrix when no data is passed', () => {
       const chunk = chunkDay()
 
-      expect(chunk).toHaveLength(0)
+      expect(chunk).toHaveLength(1)
+      expect(chunk[0]).toHaveLength(0)
     })
 
     it('should chunk data into one day matrix', () => {
       const chunk = chunkDay(data)
 
       expect(chunk).toHaveLength(1)
+      expect(chunk[0]).toHaveLength(1)
     })
 
     it('should chunk data when valid prop is passed', () => {
       const chunk = chunkDay(data, 1)
 
       expect(chunk).toHaveLength(1)
+      expect(chunk[0]).toHaveLength(1)
     })
 
-    it('return empty array when invalid prop is passed', () => {
+    it('return empty matrix when invalid prop is passed', () => {
       const chunk = chunkDay(data, 'a')
 
-      expect(chunk).toHaveLength(0)
+      expect(chunk).toHaveLength(1)
+      expect(chunk[0]).toHaveLength(0)
+    })
+
+    it('return te right day and index #0', () => {
+      const chunk = chunkDay(data, '1')
+      const day = chunk[0][0]
+
+      expect(day).toHaveProperty('day', 1)
+      expect(day).toHaveProperty('index', 0)
+    })
+
+    it('return te right day and index #1', () => {
+      const chunk = chunkDay(data, 20)
+      const day = chunk[0][0]
+
+      expect(day).toHaveProperty('day', 20)
+      expect(day).toHaveProperty('index', 5)
     })
   })
 })

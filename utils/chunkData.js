@@ -1,7 +1,8 @@
-export const chunkMonth = data => {
-  if (!data) return [[]]
+const WEEK_DAYS_LENGTH = 7
 
-  const WEEK_DAYS_LENGTH = 7
+export const chunkMonth = data => {
+  if (!data?.length) return [[]]
+
   let chunk = []
 
   for(let i = 0; i < data.length; i = i + WEEK_DAYS_LENGTH) {
@@ -15,23 +16,37 @@ export const chunkMonth = data => {
   return chunk
 }
 
-export const chunkWeek = (data, week = 1) => {
-  if (!data) return [[]]
+export const chunkWeek = (data, day = 1) => {
+  const formatDay = parseInt(day)
+  
+  if (!(data?.length && formatDay)) return [[]]
 
-  const row = week -1
   const monthData = chunkMonth(data)
 
-  return [monthData[row]]
+  const weekData = monthData
+    .map(row => {
+      const someRow = row.some(({ day, onMonth }) => day === formatDay && onMonth)
+      if (someRow) return row
+    })
+    .filter(el => el)
+  
+  return weekData
 }
 
 export const chunkDay = (data, day = 1) => {
   const formatDay = parseInt(day)
 
-  if (!data || !formatDay) return []
+  if (!(data?.length && formatDay)) return [[]]
 
-  const dayData = data
-    .filter(({ day, onMonth }) => day === formatDay && onMonth)
-    .map((el, index) => ({ ...el, index }))
+  const monthData = chunkMonth(data)
+
+  const dayData = monthData
+    .map(row => row.map((el, index) => {
+      const { day, onMonth } = el
+      if (day === formatDay && onMonth) return ({ ...el, index})
+    }))
+    .map(el => el.filter(el => el))
+    .filter(el => el.length)  
   
   return dayData
 }
