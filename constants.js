@@ -1,1 +1,2 @@
 export const WEEK_DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+export const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'september', 'october', 'november', 'december']
