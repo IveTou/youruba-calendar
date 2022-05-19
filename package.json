@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "jest --env=jsdom",
+    "test:watch": "jest test --watch --env=jsdom",
     "lint": "eslint \"**/*.{js, jsx}\" --fix",
     "style-lint": "yarn stylelint '**/*.style.js'"
   },
   "dependencies": {
+    "jest": "^28.1.0",
     "next": "12.1.0",
     "next-pwa": "^5.4.4",
     "react": "17.0.2",
@@ -18,8 +21,11 @@
     "styled-theming": "^2.2.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-do-expressions": "^7.16.7",
+    "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "stylelint": "^14.6.1",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^9.0.3",
