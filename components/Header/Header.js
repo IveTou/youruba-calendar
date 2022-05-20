@@ -7,7 +7,7 @@ const Header = () => (
   <UIBase>
     <S.Header>
       <S.Content>
-        <S.Icon>Calyo</S.Icon>
+        <S.Icon>Calyô</S.Icon>
         <S.ToolBar></S.ToolBar>
       </S.Content>
     </S.Header>
