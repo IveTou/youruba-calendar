@@ -7,10 +7,10 @@ const Grid = ({ data, header, square }) => {
   const rows = data.length
 
   return (
-    <>
+    <S.Wrapper>
       <S.Header>
         {header.map((e, index) =>
-          <S.HeaderCell key={index}>{e}</S.HeaderCell>
+          <S.HeaderCell key={index}>{e.slice(0,2)}</S.HeaderCell>
         )}
       </S.Header>
       <S.Box percent={!square && header.length/* TODO: make it more semantic */}>
@@ -24,7 +24,7 @@ const Grid = ({ data, header, square }) => {
           ))}
         </S.Grid>
       </S.Box>
-    </>
+    </S.Wrapper>
   )
 }
 
