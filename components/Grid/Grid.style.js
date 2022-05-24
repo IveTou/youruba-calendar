@@ -42,7 +42,13 @@ const S = {
     justify-content: center;
     font-size: 14px;
     font-weight: 500;
-    color: ${({ active }) => active ? 'black' : 'grey'};
+    color: ${({ onMonth }) => onMonth ? 'black' : 'grey'};
+
+    ${({ active }) => active && css`
+      color: #fff;
+      background: #dc8e00d4;
+      font-weight: 600;
+    `}
   `,
   Header: styled.div`
     display: flex;

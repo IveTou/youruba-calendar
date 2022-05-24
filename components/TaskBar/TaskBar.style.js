@@ -5,12 +5,10 @@ const S = {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    height: 52px;
-    padding: 0 24px;
-    margin-bottom: 14px;
+    padding: 24px;
       
     @media (min-width: 600px) {
-      padding: 0 40px;
+      padding: 32px 40px;
     }
   `,
   Content: styled.div`

@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 
 import S from './Grid.style'
 
-const Grid = ({ data, header, square, unique }) => {
+const Grid = ({ data, header, active, square, unique }) => {
   const rows = data.length
+
+  console.log(active)
 
   return (
     <S.Wrapper>
@@ -18,7 +20,13 @@ const Grid = ({ data, header, square, unique }) => {
           {data.map((row, i) => (
             <S.Row key={i} percent={rows}>
               {row.map(({ day, onMonth }, j) => (
-                <S.Cell key={`${i}-${j}`} active={onMonth}>{day}</S.Cell>
+                <S.Cell
+                  key={`${i}-${j}`}
+                  onMonth={onMonth}
+                  active={onMonth && parseInt(active) === parseInt(day)}
+                >
+                  {day}
+                </S.Cell>
               ))}
             </S.Row>
           ))}
@@ -31,6 +39,7 @@ const Grid = ({ data, header, square, unique }) => {
 Grid.propTypes = {
   data: PropTypes.array,
   header: PropTypes.array,
+  active: PropTypes.string,
   square: PropTypes.bool,
   unique: PropTypes.bool
 }

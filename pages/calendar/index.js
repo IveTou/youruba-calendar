@@ -20,15 +20,18 @@ const Views = () => {
     day: {
       data: viewDayData,
       header: [today],
+      active: day,
       unique: true
     },
     week: {
       data: chunkWeek(days, day),
-      header: WEEK_DAYS
+      header: WEEK_DAYS,
+      active: day,
     },
     month: {
       data:  chunkMonth(days),
       header: WEEK_DAYS,
+      active: day,
       square: true
     }
   }
