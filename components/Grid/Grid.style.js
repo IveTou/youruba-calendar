@@ -58,9 +58,11 @@ const S = {
     font-size: 18px;
     font-weight: 700;
 
-    :first-child, :last-child {
-      color: #dc8e00
-    }
+    ${({ unique }) => !unique && css`
+      :first-child, :last-child {
+        color: #dc8e00
+      }
+    `}
   `
 }
 

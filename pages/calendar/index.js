@@ -10,17 +10,17 @@ import Details from '../../components/Details/Details'
 
 const Views = () => {
   const router = useRouter()
-  const { view, year, month, day } = router.query
-  /* TODO: provide default/fallback attrs */
+  const { view, year, month, day = new Date().getDate() } = router.query
 
   const days = daysProvider({ year, month })
-
   const viewDayData = chunkDay(days, day)
+  const today = WEEK_DAYS[viewDayData[0][0]?.index]
 
   const viewMap = {
     day: {
       data: viewDayData,
-      header: [WEEK_DAYS[viewDayData[0][0]?.index]]
+      header: [today],
+      unique: true
     },
     week: {
       data: chunkWeek(days, day),
@@ -44,7 +44,7 @@ const Views = () => {
       <Grid  {...gridProps} />
       <Details
         date={day}
-        day={WEEK_DAYS[0]}
+        day={today}
         description='Lorem ipsum'
       />
     </Layout>

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 
 import S from './Grid.style'
 
-const Grid = ({ data, header, square }) => {
+const Grid = ({ data, header, square, unique }) => {
   const rows = data.length
 
   return (
     <S.Wrapper>
       <S.Header>
         {header.map((e, index) =>
-          <S.HeaderCell key={index}>{e.slice(0,2)}</S.HeaderCell>
+          <S.HeaderCell unique={unique} key={index}>{unique ? e : e.slice(0,2)}</S.HeaderCell>
         )}
       </S.Header>
       <S.Box percent={!square && header.length/* TODO: make it more semantic */}>
@@ -31,7 +31,8 @@ const Grid = ({ data, header, square }) => {
 Grid.propTypes = {
   data: PropTypes.array,
   header: PropTypes.array,
-  square: PropTypes.bool
+  square: PropTypes.bool,
+  unique: PropTypes.bool
 }
 
 Grid.defaultProps = {
