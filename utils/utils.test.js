@@ -8,10 +8,10 @@ describe('daysProvider', () => {
     expect(data).toHaveLength(42)
   })
 
-  it('should return undefined when props are invalid', () => {
+  it('should not return empty array when props are invalid', () => {
     const data = daysProvider({ year: 2022, month: 'may' })
     
-    expect(data).toHaveLength(0)
+    expect(data.length).toBeGreaterThan(0)
   })
 
   
