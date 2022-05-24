@@ -20,6 +20,7 @@ const S = {
     display: flex;
     font-weight: 700;
     font-size: 32px;
+    color: #fff;
   `,
   ToolBar: styled.div`
     display: flex;

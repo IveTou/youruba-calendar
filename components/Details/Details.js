@@ -1,18 +1,26 @@
-import UIBase from '../../containers/UIBase'
+import PropTypes from 'prop-types'
 import S from './Details.style'
 
-const Details = () => {
+const Details = ({ date, day, description }) => {
+  if (!(date && day && description)) return null
+  
   return (
     <S.Details>
       <S.Content>
-        <S.Date>02</S.Date>
-        <S.WeekDay>Monday</S.WeekDay>
+        <S.Date>{date}</S.Date>
+        <S.WeekDay>{day}</S.WeekDay>
         <S.Description>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar enim eget velit varius pharetra. Integer rutrum faucibus magna, non ultrices diam fringilla ut. Aliquam at viverra enim.
+          {description}
         </S.Description>
       </S.Content>
     </S.Details>
   )
+}
+
+Details.propTypes = {
+  date: PropTypes.string,
+  day: PropTypes.string,
+  description: PropTypes.string
 }
 
 export default Details

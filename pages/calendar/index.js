@@ -42,7 +42,11 @@ const Views = () => {
   return (
     <Layout>
       <Grid  {...gridProps} />
-      <Details />
+      <Details
+        date={day}
+        day={WEEK_DAYS[0]}
+        description='Lorem ipsum'
+      />
     </Layout>
   )
 }

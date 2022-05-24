@@ -4,7 +4,7 @@ import UIBase from '../../containers/UIBase'
 import S from './Header.style'
 
 const Header = () => (
-  <UIBase>
+  <UIBase background='#e8ac3e'>
     <S.Header>
       <S.Content>
         <S.Icon>Calyô</S.Icon>

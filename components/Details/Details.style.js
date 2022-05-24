@@ -27,6 +27,7 @@ const S = {
   WeekDay: styled.div`
     font-size: 24px;
     font-weight: 400;
+    text-transform: capitalize;
   `,
   Description: styled.div`
     padding-top: 14px;
