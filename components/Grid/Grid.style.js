@@ -42,7 +42,7 @@ const S = {
     justify-content: center;
     font-size: 14px;
     font-weight: 500;
-    color: ${({ onMonth }) => onMonth ? 'black' : 'grey'};
+    color: ${({ on }) => on ? 'black' : 'grey'};
 
     ${({ active }) => active && css`
       color: #fff;

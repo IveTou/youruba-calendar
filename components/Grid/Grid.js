@@ -6,8 +6,6 @@ import S from './Grid.style'
 const Grid = ({ data, header, active, square, unique }) => {
   const rows = data.length
 
-  console.log(active)
-
   return (
     <S.Wrapper>
       <S.Header>
@@ -22,7 +20,7 @@ const Grid = ({ data, header, active, square, unique }) => {
               {row.map(({ day, onMonth }, j) => (
                 <S.Cell
                   key={`${i}-${j}`}
-                  onMonth={onMonth}
+                  on={onMonth.toString()}
                   active={onMonth && parseInt(active) === parseInt(day)}
                 >
                   {day}
@@ -39,7 +37,10 @@ const Grid = ({ data, header, active, square, unique }) => {
 Grid.propTypes = {
   data: PropTypes.array,
   header: PropTypes.array,
-  active: PropTypes.string,
+  active: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number 
+  ]),
   square: PropTypes.bool,
   unique: PropTypes.bool
 }

@@ -3,7 +3,7 @@ import S from './Details.style'
 
 const Details = ({ date, day, description }) => {
   if (!(date && day && description)) return null
-  
+
   return (
     <S.Details>
       <S.Content>
@@ -18,7 +18,10 @@ const Details = ({ date, day, description }) => {
 }
 
 Details.propTypes = {
-  date: PropTypes.string,
+  date: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number 
+  ]),
   day: PropTypes.string,
   description: PropTypes.string
 }
