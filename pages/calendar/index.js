@@ -5,11 +5,13 @@ import { WEEK_DAYS } from '../../constants'
 import daysProvider from '../../utils/daysProvider'
 import { chunkMonth, chunkWeek, chunkDay } from '../../utils/chunkData'
 import Layout from '../../containers/Layout/Layout'
+import Details from '../../components/Details/Details'
 
 
 const Views = () => {
   const router = useRouter()
   const { view, year, month, day } = router.query
+  /* TODO: provide default/fallback attrs */
 
   const days = daysProvider({ year, month })
 
@@ -34,11 +36,13 @@ const Views = () => {
   const gridProps = viewMap[view]
 
   if (!gridProps) return null
+  /* TODO: redirect to base ow notfound page */
 
   /* TODO: check when grid pros is true but empty arrays */
   return (
     <Layout>
       <Grid  {...gridProps} />
+      <Details />
     </Layout>
   )
 }
