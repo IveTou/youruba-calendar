@@ -4,12 +4,12 @@ const S = {
   Wrapper: styled.div`
     position: relative;
     width: 100%;
-    padding: 0 24px;
+    min-height: 260px;
+    padding: 0 24px 8px;
   `,
   Box: styled.div`
     position: relative;
     width: 100%;
-    background: aliceblue;
 
     &:after {
       display: block;
