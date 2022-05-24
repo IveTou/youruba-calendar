@@ -4,6 +4,7 @@ import Grid from '../../components/Grid'
 import { WEEK_DAYS } from '../../constants'
 import daysProvider from '../../utils/daysProvider'
 import { chunkMonth, chunkWeek, chunkDay } from '../../utils/chunkData'
+import Layout from '../../containers/Layout/Layout'
 
 
 const Views = () => {
@@ -36,7 +37,9 @@ const Views = () => {
 
   /* TODO: check when grid pros is true but empty arrays */
   return (
-    <Grid  {...gridProps} />
+    <Layout>
+      <Grid  {...gridProps} />
+    </Layout>
   )
 }
 
